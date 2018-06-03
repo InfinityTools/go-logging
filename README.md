@@ -1,5 +1,5 @@
 # go-logging
-*A Go logging library.*
+[![GoDoc](https://godoc.org/github.com/InfinityTools/go-logging?status.svg)](https://godoc.org/github.com/InfinityTools/go-logging)
 
 ## About
 
@@ -17,6 +17,10 @@ After that the package can be found in:
     $GOPATH/src/github.com/InfinityTools/go-logging
 
 Use `go get -u` to update the package if needed.
+
+## Documentation
+
+For docs, see https://godoc.org/github.com/InfinityTools/go-logging .
 
 ## License
 
