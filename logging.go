@@ -82,7 +82,7 @@ func NewLogger() *Logger {
 }
 
 
-// Global returns the global logger object. It is rarely needed to call this function directly, 
+// Global returns the global logger object. It is rarely needed to call this function directly,
 // since every Logger function comes with a global counterpart of the same name.
 func Global() *Logger {
   return logger
@@ -263,7 +263,7 @@ func (l *Logger) SetOutput(level int, writer io.Writer) {
 func SetOutput(level int, writer io.Writer) { Global().SetOutput(level, writer) }
 
 
-// OverridePrefix overrides current log prefix settings only for the next call of a log output function. 
+// OverridePrefix overrides current log prefix settings only for the next call of a log output function.
 //
 // Log output functions are: Log/Logf/Logln, Info/Infof/Infoln, Warn/Warnf/Warnln, Error/Errorf/Errorln and
 // Critical/Criticalf/Criticalln. Returns the Logger object to allow chaining function calls.
@@ -274,9 +274,9 @@ func (l *Logger) OverridePrefix(showTimestamp, showCaller, showLevel bool) *Logg
   return l
 }
 
-// Global logger: OverridePrefix overrides current log prefix settings only for the next call of a log output function. 
+// Global logger: OverridePrefix overrides current log prefix settings only for the next call of a log output function.
 //
-// Log output functions are: Log/Logf/Logln, Info/Infof/Infoln, Warn/Warnf/Warnln, Error/Errorf/Errorln and 
+// Log output functions are: Log/Logf/Logln, Info/Infof/Infoln, Warn/Warnf/Warnln, Error/Errorf/Errorln and
 // Critical/Criticalf/Criticalln. Returns the global Logger object to allow chaining function calls.
 //
 // Important: Multiple calls of this function are cumulative.
@@ -423,7 +423,7 @@ func LogProgressDot(cur, max, progressMax int) { Global().LogProgressDot(cur, ma
 // LogProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within the
 // range 0 to "max" (exclusive).
 //
-// "progressMax" specifies the total number of "symbol"s to print when calling this function 
+// "progressMax" specifies the total number of "symbol"s to print when calling this function
 // for each position from 0 to max-1. Does nothing if current verbosity level is higher than LOG.
 func (l *Logger) LogProgress(cur, max, progressMax int, symbol string) {
   s := Progress(cur, max, progressMax, symbol)
@@ -436,7 +436,7 @@ func (l *Logger) LogProgress(cur, max, progressMax int, symbol string) {
 // Global logger: LogProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within
 // the range 0 to "max" (exclusive).
 //
-// "progressMax" specifies the total number of "symbol"s to print when calling this function 
+// "progressMax" specifies the total number of "symbol"s to print when calling this function
 // for each position from 0 to max-1. Does nothing if current verbosity level is higher than LOG.
 func LogProgress(cur, max, progressMax int, symbol string) { Global().LogProgress(cur, max, progressMax, symbol) }
 
@@ -456,10 +456,10 @@ func (l *Logger) InfoProgressDot(cur, max, progressMax int) {
 func InfoProgressDot(cur, max, progressMax int) { Global().InfoProgressDot(cur, max, progressMax) }
 
 
-// InfoProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within the range 
+// InfoProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within the range
 // 0 to "max" (exclusive).
 //
-// "progressMax" specifies the total number of "symbol"s to print when calling this function 
+// "progressMax" specifies the total number of "symbol"s to print when calling this function
 // for each position from 0 to max-1. Does nothing if current verbosity level is higher than INFO.
 func (l *Logger) InfoProgress(cur, max, progressMax int, symbol string) {
   s := Progress(cur, max, progressMax, symbol)
@@ -469,10 +469,10 @@ func (l *Logger) InfoProgress(cur, max, progressMax int, symbol string) {
   }
 }
 
-// Global logger: InfoProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within 
+// Global logger: InfoProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within
 // the range 0 to "max" (exclusive).
 //
-// "progressMax" specifies the total number of "symbol"s to print when calling this function 
+// "progressMax" specifies the total number of "symbol"s to print when calling this function
 // for each position from 0 to max-1. Does nothing if current verbosity level is higher than INFO.
 func InfoProgress(cur, max, progressMax int, symbol string) { Global().InfoProgress(cur, max, progressMax, symbol) }
 
@@ -492,10 +492,10 @@ func (l *Logger) WarnProgressDot(cur, max, progressMax int) {
 func WarnProgressDot(cur, max, progressMax int) { Global().WarnProgressDot(cur, max, progressMax) }
 
 
-// WarnProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within the range 
+// WarnProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within the range
 // 0 to "max" (exclusive).
 //
-// "progressMax" specifies the total number of "symbol"s to print when calling this function 
+// "progressMax" specifies the total number of "symbol"s to print when calling this function
 // for each position from 0 to max-1. Does nothing if current verbosity level is higher than WARN.
 func (l *Logger) WarnProgress(cur, max, progressMax int, symbol string) {
   s := Progress(cur, max, progressMax, symbol)
@@ -505,10 +505,10 @@ func (l *Logger) WarnProgress(cur, max, progressMax int, symbol string) {
   }
 }
 
-// Global logger: WarnProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within 
+// Global logger: WarnProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within
 // the range 0 to "max" (exclusive).
 //
-// "progressMax" specifies the total number of "symbol"s to print when calling this function 
+// "progressMax" specifies the total number of "symbol"s to print when calling this function
 // for each position from 0 to max-1. Does nothing if current verbosity level is higher than WARN.
 func WarnProgress(cur, max, progressMax int, symbol string) { Global().WarnProgress(cur, max, progressMax, symbol) }
 
@@ -528,7 +528,7 @@ func (l *Logger) ErrorProgressDot(cur, max, progressMax int) {
 func ErrorProgressDot(cur, max, progressMax int) { Global().ErrorProgressDot(cur, max, progressMax) }
 
 
-// ErrorProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within the range 
+// ErrorProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within the range
 // 0 to "max" (exclusive).
 //
 // "progressMax" specifies the total number of "symbol"s to print when calling this function for each position from
@@ -541,7 +541,7 @@ func (l *Logger) ErrorProgress(cur, max, progressMax int, symbol string) {
   }
 }
 
-// Global logger: ErrorProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within 
+// Global logger: ErrorProgress prints zero, one or more instances of "symbol" when "cur" indicates a new position within
 // the range 0 to "max" (exclusive).
 //
 // "progressMax" specifies the total number of "symbol"s to print when calling this function for each position from 0 to max-1.
@@ -555,7 +555,7 @@ func ProgressDot(cur, max, progressMax int) string {
   return Progress(cur, max, progressMax, ".")
 }
 
-// Progress returns a sequence of zero, one or more instances of "symbol" when "cur" indicates a new position within 
+// Progress returns a sequence of zero, one or more instances of "symbol" when "cur" indicates a new position within
 // the range 0 to "max" (exclusive).
 //
 // "progressMax" specifies the total number of "symbol"s to return when calling this function for each position from
